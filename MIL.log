@@ -1,0 +1,11 @@
+pnlAddPane();
+nil
+1
+designOpen("\\\\mac\\home\\desktop\\malikeh\\ut-courses\\digital_elec\\ca2\\nor.sp");
+"D0"
+t
+quit();
+exit
+pnlDeletePane(1, 1);
+nil
+nil

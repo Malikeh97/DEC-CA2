@@ -1,0 +1,20 @@
+* "simulator" "HSPICE" 
+* "version" "A-2008.03 32-BIT"
+* "format" "HSP"
+* "rundate" "01:58:45 11/08/2018 "
+* "netlist" "\\mac\home\desktop\malikeh\ut-courses\digital_elec\ca2\nor.sp "
+* "runtitle" "******** digital electronics, inverter design********"
+* time =    0.            
+* temperature =   25.0000        
+*** BEGIN: Saved Operating Point ***                     
+.option 
++ gmindc=   1.0000p       
+.nodeset
++ out =   4.1326u       
++ va =   0.            
++ vb =   0.            
++ vc =   1.0000        
++ vs =   1.0000        
++ x =  93.5113m       
++ y =  70.5483m       
+***   END: Saved Operating Point ***                     
