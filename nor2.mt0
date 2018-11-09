@@ -1,6 +1,4 @@
 $DATA1 SOURCE='HSPICE' VERSION='A-2008.03 32-BIT'
 .TITLE '******** digital electronics, inverter design********'
- average_power    tpdr             tpdf             tpd               
- pdp              temper           alter#            
-    0.             1.719e-11        1.426e-11        1.572e-11        
-    0.              25.0000           1.0000         
+ average_power    pdp              temper           alter#            
+    0.               0.              25.0000           1.0000         

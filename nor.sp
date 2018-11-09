@@ -19,7 +19,6 @@ Vina				Va		0		DC		0
 Vinb				Vb		0		DC		0
 Vinc				Vc		0		pulse	Vdd	0	0n	1p	1p	50p 100p
 
-.vec 'VectorTest.txt'
 
 ***** NOR Transistor Level ******
 Mp6				x		  Vc	 Vs 	 Vs		 pmos		l='Lmin'		w='Wp'

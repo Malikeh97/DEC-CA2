@@ -175,17 +175,13 @@
  +wn='lmin*1'
  +vdd=1v
  +temp=25deg
+
  +slp=0.1p
- +out_t_dly=12.95
- +prd=18
-
-
+ +out_t_dly=18.613
+ +prd=21
 
  ****** sources ******
  vsupply			vs		0		dc		vdd
- *vina				va		0		dc		0
- *vinb				vb		0		dc		0
- *vinc				vc		0		pulse	vdd	0	0n	1p	1p	50p 100p
 
  .vec 'vectortest.txt'
 
@@ -193,27 +189,16 @@
  mp6				x		  vc	 vs 	 vs		 pmos		l='lmin'		w='wp'
  mp5				y		  vb	 x		 x		 pmos		l='lmin'		w='wp'
  mp4       out		va	 y		 y		 pmos		l='lmin'		w='wp'
- mn1       out   va   0   0   nmos   l='lmin'    w='wn'
- mn2       out   vb   0   0   nmos   l='lmin'    w='wn'
- mn3       out   vc   0   0   nmos   l='lmin'    w='wn'
+ mn1       out   va   0     0     nmos   l='lmin'    w='wn'
+ mn2       out   vb   0     0     nmos   l='lmin'    w='wn'
+ mn3       out   vc   0     0     nmos   l='lmin'    w='wn'
 
  *********type of analysis***
- *.measure	tran	avgpower avg	power	from=100ps		to=200ps
- .measure  tran  average_power avg src_pwr from=100ps		to=200ps
+ .measure  tran   average_power avg src_pwr
  ac output variable type=src_pw not allowed for transient or dc
 
-  **warning** (\\mac\home\desktop\malikeh\ut-courses\digital_elec\ca2\nor2.sp:41)  unrecognized output variable=src_pwr  on above line
-
- .measure tpdr * rising prop delay
- + trig v(vc) val='vdd/2' fall=1
- + targ v(out) val='vdd/2' rise=1
-
- .measure tpdf * falling prop delay
- + trig v(vc) val='vdd/2' rise=1
- + targ v(out) val='vdd/2' fall=1
-
- .measure tpd param='(tpdr+tpdf)/2'
- .measure tran   pdp  param = ('average_power*tpd')
+  **warning** (\\mac\home\desktop\malikeh\ut-courses\digital_elec\ca2\nor2.sp:36)  unrecognized output variable=src_pwr  on above line
+ .measure  tran   pdp  param = ('average_power*out_t_dly')
 
  .tran  0.1ns  20ns
  .op
@@ -868,9 +853,6 @@ Model Name: pmos
   ******  transient analysis               tnom=  25.000 temp=  25.000          
  ******  
    average_power=  0.0000E+00  from=  0.0000E+00     to=  2.0000E-08
-   tpdr=  1.7186E-11  targ=  1.5114E-10   trig=  1.3395E-10
-   tpdf=  1.4261E-11  targ=  7.4736E-11   trig=  6.0475E-11
-   tpd=  1.5724E-11
    pdp=  0.0000E+00
 
           ***** job concluded
@@ -888,16 +870,16 @@ Model Name: pmos
 
     analysis           time    # points   tot. iter  conv.iter
 
-    op point           0.01           1          10
-    transient          0.13         201         346         127 rev=         0
+    op point           0.05           1          10
+    transient          0.14         201         359         128 rev=         3
     readin             0.02
     errchk             0.04
     setup              0.01
     output             0.00
-           total cpu time          0.23 seconds
+           total cpu time          0.28 seconds
            total elapsed time         1 seconds
-               job started at  10:36:03 11/08/2018
-               job ended   at  10:36:04 11/08/2018
+               job started at  13:18:00 11/09/2018
+               job ended   at  13:18:00 11/09/2018
 
 
  Init: hspice initialization file: C:\synopsys\Hspice_A-2008.03\hspice.ini

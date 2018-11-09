@@ -1,8 +1,6 @@
 $DATA1 SOURCE='HSPICE' VERSION='A-2008.03 32-BIT'
 .TITLE '******** digital electronics, inverter design********'
- avgpower         t_rise           t_fall           tpdr              
- tpdf             tpd              fmax             pdp               
- temper           alter#            
-  9.052e-06        2.732e-11        2.137e-11        2.388e-11        
-  1.334e-11        1.861e-11        2.053e+10        1.685e-16        
-   25.0000           1.0000         
+ t_rise           t_fall           tpdr             tpdf              
+ tpd              fmax             temper           alter#            
+  2.732e-11        2.137e-11        2.388e-11        1.334e-11        
+  1.861e-11        2.053e+10         25.0000           1.0000         

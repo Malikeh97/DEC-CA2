@@ -180,6 +180,7 @@
  vinb				vb		0		dc		0
  vinc				vc		0		pulse	vdd	0	0n	1p	1p	50p 100p
 
+
  ***** nor transistor level ******
  mp6				x		  vc	 vs 	 vs		 pmos		l='lmin'		w='wp'
  mp5				y		  vb	 x		 x		 pmos		l='lmin'		w='wp'
@@ -189,7 +190,6 @@
  mn3       out   vc   0   0   nmos   l='lmin'    w='wn'
 
  *********type of analysis***
- .measure	tran	avgpower avg	power	from=100ps		to=200ps
 
  .measure tran t_rise
  + trig v(out) val = '0.1*vdd'  rise = 1
@@ -210,7 +210,6 @@
 
  .measure tpd param='(tpdr+tpdf)/2' * average prop delay
  .measure tran   fmax  param = ('(1/(t_rise+t_fall))')
- .measure tran   pdp  param = ('avgpower*tpd')
 
  .tran  0.1ns  20ns
  .op
@@ -745,161 +744,3 @@ Model Name: pmos
     NJD =      1 
     PBSWGD =      1 
     MJSWGD =   0.33 
-    CJSWGD = 5e-010 
-    XTID =      3 
-    LMLT =      1 
-    WMLT =      1 
-    LINT = 2.7e-009 
-    LL =      0 
-    LLC =      0 
-    LLN =      1 
-    LW =      0 
-    LWC =      0 
-    LWN =      1 
-    LWL =      0 
-    LWLC =      0 
-    LMIN =      0 
-    LMAX =      1 
-    WINT = 5e-009 
-    WL =      0 
-    WLC =      0 
-    WLN =      1 
-    WW =      0 
-    WWC =      0 
-    WWN =      1 
-    WWL =      0 
-    WWLC =      0 
-    WMIN =      0 
-    WMAX =      1 
-    NOIA = 6.188e+040 
-    NOIB = 1.5e+025 
-    NOIC = 8.75e+009 
-    EM = 4.1e+007 
-    EF =      1 
-    AF =      1 
-    KF =      0 
-    TRS =      0 
-    TRD =      0 
- 
-
-
- **warning** dc voltage reset to initial transient source value
-             in source        0:vinc                new dc=  0.1000D+01
-
- Warning:  Acde = 1 may be too small in BSIM4 model nmos with w=4.5e-008 l=4.5e-008.
-
- Warning: (B1 + Weff) may be too small in BSIM4 model nmos with w=4.5e-008 l=4.5e-008.
-
- Warning:  Acde = 1 may be too small in BSIM4 model nmos with w=4.5e-008 l=4.5e-008.
-
- Warning: (B1 + Weff) may be too small in BSIM4 model nmos with w=4.5e-008 l=4.5e-008.
-
- Warning:  Acde = 1 may be too small in BSIM4 model nmos with w=4.5e-008 l=4.5e-008.
-
- Warning: (B1 + Weff) may be too small in BSIM4 model nmos with w=4.5e-008 l=4.5e-008.
-
- Warning:  Acde = 1 may be too small in BSIM4 model pmos with w=2.7e-007 l=4.5e-008.
-
- Warning:  Acde = 1 may be too small in BSIM4 model pmos with w=2.7e-007 l=4.5e-008.
-
- Warning:  Acde = 1 may be too small in BSIM4 model pmos with w=2.7e-007 l=4.5e-008.
-
- 
-      
-1****** HSPICE -- A-2008.03 32-BIT (Feb 26 2008) winnt ******                   
- ******  
- ******** digital electronics, inverter design********                          
-  ******  operating point information      tnom=  25.000 temp=  25.000          
- ******  
- ***** operating point status is all       simulation time is     0.     
-    node    =voltage      node    =voltage      node    =voltage
-
- +0:out     =   4.1326u 0:va      =   0.      0:vb      =   0.     
- +0:vc      =   1.0000  0:vs      =   1.0000  0:x       =  93.5113m
- +0:y       =  70.5483m
-
-
- ****  voltage sources
-
- subckt                                              
- element  0:vsupply  0:vina     0:vinb     0:vinc    
-  volts      1.0000     0.         0.         1.0000 
-  current -128.8597p    9.0975f   25.9210f -945.8115p
-  power    128.8597p    0.         0.       945.8115p
-
-     total voltage source power dissipation=    1.0747n       watts
-
-
-
-
- **** mosfets
-
-
- subckt                                                                    
- element  0:mp6      0:mp5      0:mp4      0:mn1      0:mn2      0:mn3     
- model    0:pmos     0:pmos     0:pmos     0:nmos     0:nmos     0:nmos    
- region       Cutoff     Cutoff     Cutoff     Cutoff     Cutoff     Linear
-  id      -127.9432p -140.2035p -140.1343p    3.2775f    3.2775f  607.4111p
-  ibs     -8.600e-25 -2.707e-26 -7.496e-26    0.         0.       2.088e-26
-  ibd      916.4887f   28.8719f   79.9022f   -5.7409a   -5.7409a   -5.7409a
-  vgs        0.       -93.5113m  -70.5483m    0.         0.         1.0000 
-  vds     -906.4887m  -22.9630m  -70.5442m    4.1326u    4.1326u    4.1326u
-  vbs        0.         0.         0.         0.         0.         0.     
-  vth     -390.5376m -447.9756m -444.8824m  508.8130m  508.8130m  508.8130m
-  vdsat    -45.7964m  -45.8884m  -45.8753m   42.0867m   42.0867m  304.9034m
-  vod      390.5376m  354.4643m  374.3341m -508.8130m -508.8130m  491.1870m
-  beta     390.9804u  362.0149u  363.4728u  865.8484u  865.8484u  660.5589u
-  gam eff  400.0000m  400.0000m  400.0000m  400.0000m  400.0000m  400.0000m
-  gm         3.0386n    3.3116n    3.3211n   75.8450f   75.8450f  465.4695p
-  gds      261.4126p    4.3360n  544.6718p  793.0547p  793.0547p  146.9812u
-  gmb      800.4417p  852.4855p  862.2812p   23.1971f   23.1971f  184.4475p
-  cdtot    169.9568a  238.1501a  229.2940a   35.6293a   35.6293a   65.4636a
-  cgtot    201.0103a  250.9484a  242.6874a   32.9917a   32.9917a   57.3984a
-  cstot    313.1010a  321.9130a  319.9850a   49.1024a   49.1024a   53.9827a
-  cbtot    367.2061a  389.4888a  388.0661a   65.0257a   65.0257a   64.3982a
-  cgs       97.5347a  106.3471a  104.4188a   13.1746a   13.1746a   30.1376a
-  cgd       60.8973a  104.4156a   97.5325a   13.1744a   13.1744a   26.6243a
-
-
-
- ******  
- ******** digital electronics, inverter design********                          
-  ******  transient analysis               tnom=  25.000 temp=  25.000          
- ******  
-   avgpower=  9.0520E-06  from=  1.0000E-10     to=  2.0000E-10
-   t_rise=  2.7318E-11  targ=  4.0871E-11   trig=  1.3553E-11
-   t_fall=  2.1370E-11  targ=  7.5738E-11   trig=  5.4368E-11
-   tpdr=  2.3885E-11  targ=  2.4385E-11   trig=  5.0000E-13
-   tpdf=  1.3341E-11  targ=  6.4841E-11   trig=  5.1500E-11
-   tpd=  1.8613E-11
-   fmax=  2.0539E+10
-   pdp=  1.6848E-16
-
-          ***** job concluded
-1****** HSPICE -- A-2008.03 32-BIT (Feb 26 2008) winnt ******                   
- ******  
- ******** digital electronics, inverter design********                          
-  ******  job statistics summary           tnom=  25.000 temp=  25.000          
- ******  
-
-           total memory used        181 kbytes
-
-  # nodes =      32 # elements=      10
-  # diodes=       0 # bjts    =       0 # jfets   =       0 # mosfets =       6
-  # va device =       0
-
-    analysis           time    # points   tot. iter  conv.iter
-
-    op point           0.01           1          16
-    transient          0.88         201       18213        6805 rev=       402
-    readin             0.02
-    errchk             0.03
-    setup              0.01
-    output             0.00
-           total cpu time          0.96 seconds
-           total elapsed time         1 seconds
-               job started at  01:58:45 11/08/2018
-               job ended   at  01:58:46 11/08/2018
-
-
- Init: hspice initialization file: C:\synopsys\Hspice_A-2008.03\hspice.ini
