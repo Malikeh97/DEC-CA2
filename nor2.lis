@@ -177,8 +177,9 @@
  +temp=25deg
 
  +slp=0.1p
- +out_t_dly=18.613
- +prd=21
+ +out_t_dly=21.95
+ +prd=22
+ +tpd=18.613
 
  ****** sources ******
  vsupply			vs		0		dc		vdd
@@ -194,11 +195,8 @@
  mn3       out   vc   0     0     nmos   l='lmin'    w='wn'
 
  *********type of analysis***
- .measure  tran   average_power avg src_pwr
- ac output variable type=src_pw not allowed for transient or dc
-
-  **warning** (\\mac\home\desktop\malikeh\ut-courses\digital_elec\ca2\nor2.sp:36)  unrecognized output variable=src_pwr  on above line
- .measure  tran   pdp  param = ('average_power*out_t_dly')
+ .meas tran avgpower avg  power
+ .measure  tran   pdp  param = ('avgpower*tpd')
 
  .tran  0.1ns  20ns
  .op
@@ -788,8 +786,6 @@ Model Name: pmos
 
  Warning:  Acde = 1 may be too small in BSIM4 model pmos with w=2.7e-007 l=4.5e-008.
 
- **warning** the measured variable for average_power is not defined
-
  
       
 1****** HSPICE -- A-2008.03 32-BIT (Feb 26 2008) winnt ******                   
@@ -852,8 +848,8 @@ Model Name: pmos
  ******** digital electronics, inverter design********                          
   ******  transient analysis               tnom=  25.000 temp=  25.000          
  ******  
-   average_power=  0.0000E+00  from=  0.0000E+00     to=  2.0000E-08
-   pdp=  0.0000E+00
+   avgpower=  1.6821E-07  from=  0.0000E+00     to=  2.0000E-08
+   pdp=  3.1309E-06
 
           ***** job concluded
 1****** HSPICE -- A-2008.03 32-BIT (Feb 26 2008) winnt ******                   
@@ -870,16 +866,16 @@ Model Name: pmos
 
     analysis           time    # points   tot. iter  conv.iter
 
-    op point           0.05           1          10
-    transient          0.14         201         359         128 rev=         3
+    op point           0.01           1          10
+    transient          0.12         201         423         155 rev=         1
     readin             0.02
     errchk             0.04
     setup              0.01
     output             0.00
-           total cpu time          0.28 seconds
+           total cpu time          0.22 seconds
            total elapsed time         1 seconds
-               job started at  13:18:00 11/09/2018
-               job ended   at  13:18:00 11/09/2018
+               job started at  14:13:22 11/09/2018
+               job ended   at  14:13:23 11/09/2018
 
 
  Init: hspice initialization file: C:\synopsys\Hspice_A-2008.03\hspice.ini

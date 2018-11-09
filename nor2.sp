@@ -16,8 +16,9 @@
 +temp=25DEG
 
 +slp=0.1p
-+Out_T_DLY=18.613
-+PRD=21
++Out_T_DLY=21.95
++PRD=22
++tpd=18.613
 
 ****** Sources ******
 VSupply			Vs		0		DC		Vdd
@@ -33,8 +34,8 @@ Mn2       out   Vb   0     0     nmos   l='Lmin'    w='Wn'
 Mn3       out   Vc   0     0     nmos   l='Lmin'    w='Wn'
 
 *********Type of Analysis***
-.measure  tran   average_power avg SRC_PWR
-.measure  tran   PDP  PARAM = ('average_power*Out_T_DLY')
+.meas tran AVGpower avg  Power
+.measure  tran   PDP  PARAM = ('AVGpower*tpd')
 
 .tran  0.1ns  20ns
 .op

@@ -1,7 +1,7 @@
 * "simulator" "HSPICE" 
 * "version" "A-2008.03 32-BIT"
 * "format" "HSP"
-* "rundate" "13:18:00 11/09/2018 "
+* "rundate" "14:13:22 11/09/2018 "
 * "netlist" "\\mac\home\desktop\malikeh\ut-courses\digital_elec\ca2\nor2.sp "
 * "runtitle" "******** digital electronics, inverter design********"
 * time =    0.            
